@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    background: url("../images/clientbg.jpg")no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: GeosansLight;
+    position: relative;
+}
+
+.profil {
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-shadow: 2px 2px 4px black;
+}
+
+.personal-info {
+    position: relative;
+    width: 250px;
+    height: 100%;
+    float: left;
+    background: #22a6b3;
+    border-right: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.personal-info img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: -75px;
+    left: calc(50% - 75px);
+}
+
+.personal-info #info {
+    padding-top: 100px;
+    width: 100%;
+    height: auto;
+}
+
+#info h2 {
+    padding-left: 10px;
+    padding-bottom: 15px;
+    color: white;
+}
+
+#info ul {
+    list-style: none;
+    color: white;
+    font-weight: normal;
+    font-size: 12pt;
+}
+
+#info ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 10px;
+}
+
+.tabHolder {
+    height: 100%;
+    width: 750px;
+    float: left;
+    background: white;
+}
+
+#info ul li:nth-child(1) {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#userNav {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    background: #3d3d3d;
+    color: white;
+    font-family: GeosansLight;
+    position: relative;
+}
+
+#userNav a,
+#userNav a:visited,
+#userNav a:hover {
+    color: white;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#rentcar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#logout {
+    position: absolute;
+    right: 25px;
+}
+
+.tabList {
+    width: 100%;
+    height: 50px;
+    border: none;
+}
+
+.tabList p {
+    cursor: pointer;
+    height: 50px;
+    width: calc(100% / 3);
+    line-height: 50px;
+    background: #22a6b3;
+    float: left;
+    text-align: center;
+    border: none;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: background .25s ease-in-out;
+    transition: color .25s ease-in-out;
+    margin: 0;
+}
+
+.tabList .active {
+    color: black;
+    background: white;
+}
+
+.tabContent {
+    height: 400px;
+    width: 100%;
+    background: white;
+    font-family: GeosansLight;
+    overflow-y: scroll;
+}
+
+.tabContent::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tabContent::-webkit-scrollbar-track {}
+
+.tabContent::-webkit-scrollbar-thumb {
+    height: 100px;
+    background: blueviolet;
+    outline: 1px solid slategrey;
+}
+
+#reslist,
+#contact,
+#history {
+    display: none;
+}
+
+#historyTable,
+#ResTable {
+    font-size: 11pt;
+}
+
+.row {
+    padding: 10px;
+    width: 100%;
+}
+
+.formContainer {
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    font-weight: bold;
+}
+
+.formContainer input {
+    height: 30px;
+    width: 200px;
+    padding: 2px 5px;
+    border: 1px solid #22a6b3;
+}
+
+.formContainer textarea {
+    height: 100px;
+    width: 200px;
+    padding: 2px 5px;
+    border: 1px solid #22a6b3;
+}
+
+.formContainer table tr td {
+    padding: 5px;
+}
+
+.formContainer input[type='submit'] {
+    background: #22a6b3;
+    color: white;
+    box-shadow: 2px 2px 4px black;
+}
+
+.cancel {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets%}
+    <link rel='stylesheet' href="{{ asset('css/register.css') }}"
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+ <script>
+            $(document).ready(function(){
+            $('html, body').animate({
+                scrollTop: $(".formContainer").offset().top
+            }, 2000);
+        });   
+</script>  
+{% endblock %}
+{% block body %}
+{{ include('includes/navbar.html.twig') }}
+{{include('includes/header.html.twig')}}
+<div class='formContainer'>
+<div class="formDiv">
+<h1>WELCOME TO <span id="lg">AR</span>CARS</h1>
+{{form_start(form)}}
+{{form_row(form.fullname,{'attr':{'placeholder':'Fullname'}})}}
+{{form_row(form.identity,{'attr':{'placeholder':'National Identity Card'}})}}
+{{form_row(form.birthdate,{'attr':{'placeholder':'Birthdate'}})}}
+{{form_row(form.phone,{'attr':{'placeholder':'Phone'}})}}
+{{form_row(form.username,{'attr':{'placeholder':'Username'}})}}
+{{form_row(form.email,{'attr':{'placeholder':'Email'}})}}
+{{form_row(form.password,{'attr':{'placeholder':'Password'}})}}
+<button type="submit" class="btn btn-primary">Sign in</button>
+<div class="errorClass">
+{{form_errors(form)}}
+</div>
+{{form_end(form)}}
+</div>
+</div>
+{% endblock %}

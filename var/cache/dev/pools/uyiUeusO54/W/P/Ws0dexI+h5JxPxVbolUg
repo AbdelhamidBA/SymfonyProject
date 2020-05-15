@@ -1,0 +1,24 @@
+<?php //%255BApp%255CEntity%255CReservation%2524id_car%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        clone ($p['Doctrine\\ORM\\Mapping\\OneToOne'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToOne')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'type' => [
+                'integer',
+            ],
+            'targetEntity' => [
+                1 => 'App\\Entity\\Car',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+); }];

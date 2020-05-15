@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets%}
+    <link rel='stylesheet' href="{{ asset('css/login.css') }}"
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+ <script>
+            $(document).ready(function(){
+            $('html, body').animate({
+                scrollTop: $(".formContainer").offset().top
+            }, 2000);
+        });   
+</script>     
+{% endblock %}
+{% block body %}
+  
+{{ include('includes/navbar.html.twig') }}
+{{include('includes/header.html.twig')}}
+<div class='formContainer'>
+<div class="formDiv">
+<h1>WELCOME TO <span id="lg">AR</span>CARS</h1>
+<form id="login-form" action="{{path('loginPath')}}" method="post" role="form">
+     <div class="form-group">
+          <label for="username">Username/Email</label>
+          <input type="text" name="_username" id="username" tabindex="1" class="form-control" placeholder="Username or Email" required>
+     </div>
+     <div class="form-group">
+         <label for="password">Password</label>
+         <input type="password" name="_password" id="password" tabindex="2" class="form-control" placeholder="Password">
+     </div>
+     <div class="form-group">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+     </div>
+</form>
+
+</div>
+</div>
+{% endblock %}

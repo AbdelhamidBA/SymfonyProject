@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    color: white;
+    font-family: GeosansLight;
+    font-size: 14pt;
+    letter-spacing: 2px;
+}
+
+#lg {
+    color: #5eb5e0;
+}
+
+.nav {
+    position: absolute;
+    top: 5%;
+    transform: translateY(-5%);
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.nav ul li {
+    display: inline-block;
+    height: 100%;
+    line-height: 50px;
+    padding: 0px 25px;
+}
+
+.nav ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14pt;
+    letter-spacing: 2px;
+    transition: color .25s ease-in-out;
+    font-family: GeosansLight;
+}
+
+.nav a:hover {
+    text-decoration: none;
+    color: #5eb5e0;
+}
+
+.nav a:visited,
+nav a:focus {
+    text-decoration: none;
+    color: white;
+}

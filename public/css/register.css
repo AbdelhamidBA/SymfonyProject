@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.formContainer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+}
+
+.formDiv {
+    position: absolute;
+    height: 250px;
+    width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Geosanslight;
+}
+
+.formDiv button {
+    float: right;
+    width: 100%;
+}
+
+h1 {
+    font-family: Geosanslight;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.errorClass {
+    width: 100%;
+}

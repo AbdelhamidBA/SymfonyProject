@@ -1,0 +1,498 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.content-holder::-webkit-scrollbar {
+    width: 5px;
+}
+
+.content-holder::-webkit-scrollbar-track {}
+
+.content-holder::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(0, 236, 255, 1) 0%, rgba(34, 142, 162, 1) 45%, rgba(0, 212, 255, 1) 100%);
+    outline: 1px solid slategrey;
+    height: 100px;
+}
+
+.tabContent::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tabContent::-webkit-scrollbar-track {}
+
+.tabContent::-webkit-scrollbar-thumb {
+    height: 100px;
+    background: linear-gradient(180deg, rgba(0, 236, 255, 1) 0%, rgba(34, 142, 162, 1) 45%, rgba(0, 212, 255, 1) 100%);
+    outline: 1px solid slategrey;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    background: #22a6b3;
+}
+
+aside {
+    width: 20%;
+    float: left;
+    height: 100%;
+    background: white;
+    border-right: 1px solid rgba(0, 0, 0, .25);
+}
+
+.logo-text {
+    padding: 50px 25px;
+    text-align: left;
+    font-family: GeosansLight;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    color: #22a6b3;
+}
+
+.showContainer {
+    float: left;
+    width: 80%;
+    height: 100%;
+    background: white;
+}
+
+aside ul {
+    appearance: none;
+    outline: none;
+    font-weight: bold;
+    font-family: GeosansLight;
+}
+
+aside ul li {
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    padding-left: 20px;
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+    transition: color .25s ease-in-out;
+    transition: background-color .25s ease-in-out;
+    transition: box-shadow .25s ease-in-out;
+    transition: border-bottom .25s ease-in-out;
+    transition: border-top .25s ease-in-out;
+    position: relative;
+}
+
+aside ul li:nth-child(1) {
+    border-top: 1px solid rgba(0, 0, 0, .25);
+}
+
+#carManagement li {
+    padding-left: 75px;
+}
+
+#carManagement li:nth-child(1) {
+    border-top: none;
+}
+
+aside ul li:hover {
+    color: white;
+    background-color: #22a6b3;
+    box-shadow: 2px 2px 10px 2px black;
+    border-bottom: none;
+    border-top: none;
+}
+
+i {
+    color: black;
+    font-size: 25px;
+    margin-right: 5px;
+    transition: color .25s ease-in-out;
+}
+
+aside ul li:hover>i {
+    color: white;
+}
+
+#carManagement {
+    display: none;
+}
+
+nav {
+    height: 50px;
+    background: #22a6b3;
+}
+
+nav a,
+nav a:visited,
+nav a:hover {
+    color: white;
+    outline: none;
+    appearance: none;
+    transition: color .25s ease-in-out;
+    font-family: GeosansLight;
+    font-size: 14pt;
+    line-height: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: auto;
+    height: auto;
+    float: right;
+    margin-right: 25px;
+}
+
+.content-holder {
+    width: 100%;
+    height: calc(100% - 50px);
+    background-color: #f7f1e3;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.tabContent {
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.welcome {
+    height: 75px;
+    font-weight: bold;
+    font-family: GeosansLight;
+    width: 100%;
+    line-height: 75px;
+    padding-left: 25px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    background: white;
+    margin-bottom: 10px;
+}
+
+.page-title {
+    height: 50px;
+    font-weight: bold;
+    font-family: GeosansLight;
+    width: 100%;
+    line-height: 50px;
+    padding-left: 25px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    background: white;
+    margin-bottom: 10px;
+}
+
+.stats {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+table tr td {
+    padding-right: 15px;
+}
+
+.stat-block {
+    float: left;
+    width: 250px;
+    height: 200px;
+    background: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    font-family: GeosansLight;
+    font-weight: bold;
+}
+
+.stat-block .result {
+    height: calc(100% - 50px);
+    width: 100%;
+    line-height: 150px;
+    text-align: center;
+    align-content: center;
+    font-size: 18pt;
+}
+
+#user-title,
+#car-title,
+#actres-title,
+#totalres-title {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#car-title {
+    background-color: #7d5fff;
+}
+
+#user-title {
+    background: #22a6b3;
+}
+
+#actres-title {
+    background: #ff793f;
+}
+
+#totalres-title {
+    background: #32ff7e;
+}
+
+#earn-title {
+    background: #4b4b4b;
+}
+
+#fav-title {
+    background: #cd84f1;
+}
+
+.section2 {
+    height: 250px;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+
+.section2 table tr td {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.section2 table tr td:nth-child(1) {
+    padding-right: 5px;
+}
+
+.section2 table tr td:nth-child(2) {
+    padding-left: 10px;
+    margin: 0;
+}
+
+.half-stats {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    font-family: GeosansLight;
+    font-weight: bold;
+}
+
+.half-res {
+    height: 200px;
+    width: 100%;
+    float: left;
+    background: white;
+    line-height: 200px;
+    text-align: center;
+    align-content: center;
+}
+
+.half-res img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    line-height: 200px;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 10px;
+}
+
+.half-res p {
+    line-height: 200px;
+    text-align: center;
+    align-content: center;
+    width: auto;
+}
+
+.half-res #earning-cont {
+    line-height: 200px;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+}
+
+.half-res #name-fav,
+.half-res #earning-cont {
+    float: left;
+    line-height: 200px;
+    text-align: center;
+    align-content: center;
+    font-size: 18pt;
+}
+
+#earn-title,
+#fav-title {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    color: white;
+    letter-spacing: 2px;
+    float: left;
+}
+
+#car,
+#reserv,
+#deleteC,
+#addC,
+#updateC,
+#StatusC {
+    display: none;
+}
+
+#allCarsTable,
+#allReservationTable {
+    background: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    font-family: GeosansLight;
+    font-weight: bold;
+}
+
+#allCarsTable img {
+    width: 150px;
+    height: 150px;
+}
+
+#allCarsTable_wrapper {
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.formContainer {
+    width: 100%;
+    height: calc(100% - 60px);
+    background: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    font-family: GeosansLight;
+    font-weight: bold;
+    padding: 25px;
+}
+
+.formContainer input,
+.formContainer select,
+.formContainer span {
+    width: 200px;
+    height: 30px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+.formContainer label {
+    width: 200px;
+}
+
+.formContainer table {
+    width: 600px;
+}
+
+.formContainer table tr td {
+    width: 200px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.formContainer span {
+    color: red;
+    font-family: GeosansLight;
+}
+
+.formContainer input[type="reset"],
+.formContainer input[type="submit"],
+#delete {
+    width: 200px;
+    outline: none;
+    height: 35px;
+    appearance: none;
+    border: 2px solid black;
+    color: black;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: bold;
+    padding: 5px;
+    transition: background-color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+    transition: border .25s ease-in-out;
+    transition: box-shadow .25s ease-in-out;
+}
+
+.formContainer input[type="reset"]:hover,
+.formContainer input[type="submit"]:hover,
+#delete:hover {
+    background-color: #22a6b3;
+    color: white;
+    border: 2px solid rgba(0, 0, 0, .25);
+    box-shadow: 2px 2px 4px black;
+}
+
+.carInfo {
+    display: none;
+    width: 500px;
+    height: 200px;
+    box-shadow: 2px 2px 4px black;
+    background-color: white;
+    font-family: GeosansLight;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.carInfo img {
+    width: 250px;
+    height: 200px;
+    float: left;
+    padding-right: 10px;
+}
+
+.carInfo #carInf {
+    float: left;
+    width: auto;
+    height: 200px;
+}
+
+.carInfo #carInf ul {
+    float: left;
+    outline: none;
+    appearance: none;
+    list-style: none;
+    padding: 10px;
+}
+
+.carInfo #carInf ul li {
+    padding-bottom: 2px;
+    padding-left: 20px;
+}
+
+.carInfo #carInf ul li:nth-child(1) {
+    padding-left: 5px;
+}
+
+.Returned {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
