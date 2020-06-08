@@ -5,8 +5,12 @@
     <ul>
         <li class="logo"><span id="lg">AR</span>CARS</li>
         <li><a href="{{path('home')}}">HOME</a></li>
+        {# Cette Partie permet de verifier si il y a un utilisateur connecté 
+            Si ce le cas alors on va afficher un cutsom navgiation bar pour chaque
+            role
+         #}
         {% if not app.user %}
-            <li><a href="{{path('home')}}">CARS</a></li>
+            <li><a href="{{path('rent_car')}}">CARS</a></li>
             <li><a href="{{path('loginPath')}}">LOGIN</a></li>
             <li><a href="{{path('register')}}">REGISTER</a></li>
         {% else %} 
@@ -16,7 +20,7 @@
             <li><a href="{{path('logout')}}">LOGOUT</a></li>
         {% else %}
         {% if is_granted('ROLE_USER') %}
-            <li><a href="{{path('home')}}">CARS</a></li>
+            <li><a href="{{path('rent_car')}}">CARS</a></li>
             <li><a href="{{path('loginPath')}}">PROFILE</a></li>
             <li><a href="{{path('logout')}}">LOGOUT</a></li>
         {% endif %}

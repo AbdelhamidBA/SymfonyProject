@@ -1,0 +1,547 @@
+@font-face {
+    font-family: GeosansLight;
+    src: url(../fonts/GeosansLight.ttf) format("truetype");
+}
+
+*
+{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body,html
+{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header
+{
+    position: relative;
+    width: 100%;
+    height: 75%;
+    background:url("../images/rent_header.jpg") no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+
+}
+.filter-zone
+{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    padding: 25px;
+    background-color: rgba(0,0,0,.75);
+    width: 75%;
+    color: white;
+    font-size: 14pt;
+    font-family: GeosansLight;
+
+}
+.filter-zone table
+{
+    width: 100%;
+
+}
+.filter-zone table tr td
+{
+    padding: 5px;
+}
+.filter-zone input[type="text"],.filter-zone select,.filter-zone input[type="date"],.filter-zone input[type="submit"]
+{
+    width:200px;
+    height: 35px;
+    padding: 5px 10px;
+    font-family: GeosansLight;
+    background: transparent;
+    border: 2px solid;
+    border-color: rgba(255,255,255,.75);
+    color:white;
+    font-size: 12pt;
+    transition: border-color .5s ease-in-out;
+    transition: background .5s ease-in-out;
+    outline: none;
+
+
+
+}
+.filter-zone input[type="text"]:focus,.filter-zone select:focus,.filter-zone input[type="date"]:focus
+{
+    border-color: #22a6b3;
+}
+.filter-zone input::placeholder,.filter-zone input[type="date"],.filter-zone select
+{
+    color: rgba(255,255,255,.50);
+
+}
+.filter-zone input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #22a6b3 ;
+    border-color: white;
+
+}
+.filter-zone input[type="checkbox"]
+{
+    background: rgba(0,0,0,.5);
+border: 2px solid white;
+appearance: none;
+}
+.mainContainer
+{
+    width: 100%;
+    height: auto;
+    padding: 25px 50px;
+}
+.mainContainer #containerTitle
+{
+    line-height: 50px;
+    color: black;
+    font-size: 20pt;
+    font-family: GeosansLight;
+    font-weight: bold;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 50px;
+
+}
+.pagination
+{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    align-content: center;
+    font-size: 14pt;
+    font-family: GeosansLight;
+    font-weight: bold;
+    margin-bottom: 50px;
+
+}
+
+.ProductList
+{
+    height: 100%;
+    width: 100%;
+
+
+}
+
+
+
+
+
+/*
+
+    Car CSS
+
+ */
+
+.car
+{
+    position: relative;
+    height: 400px;
+    width: 250px;
+    border: 5px solid rgba(0,0,0,.75);
+    font-family: GeosansLight;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+    float: left;
+}
+.car img
+{
+    width: 100%;
+    height: 200px;
+
+}
+.car #carPrice
+{
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    background-color: #e74c3c;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    color:white;
+}
+.car #carName
+{
+    padding: 5px 5px;
+}
+.car #carInfo
+{
+    font-size: 12px;
+    padding-left: 25px;
+}
+.car input[type="Submit"]
+ {
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 50px;
+     line-height: 50px;
+     text-align: center;
+     align-content: center;
+     background: #e74c3c;
+     outline: none;
+     border:none;
+     color:white;
+     font-family: GeosansLight;
+     font-weight: bold;
+     font-size: 14pt;
+    transition: background .5s ease-in-out;
+
+ }
+.car input[type="Submit"]:hover
+{
+    cursor: pointer;
+    background: #c0392b;
+
+}
+
+
+
+/*
+
+
+Footer
+
+*/
+
+
+.footer {
+    background: black;
+    color: #d3d3d3;
+    height: 400px;
+    position: relative;
+
+}
+.footer-content{
+    height: 350px;
+    display: flex;
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    border-top: #079992;
+}
+.footer-section{
+    flex: 1;
+    padding: 25px;
+    border: 1px solid white;
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.footer-section-about h1{
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size: 48px;
+    color: azure;
+    margin: 0px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.footer-content h1, .footer-content h2{
+    color: white;
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo-text{
+    position: absolute;
+    top: 10%;
+    left :8%;
+    transform: translate(-50%,-50%);
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.paragraphe{
+    position: absolute;
+    top: 28%;
+    left :14%;
+    transform: translate(-50%,-50%);
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.socials{
+    position: absolute;
+    top: 80%;
+    left :10%;
+    transform: translate(-50%,-50%);
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.footer-section-about h1 span{
+    color: #079992;
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.contact span {
+    display: block;
+    font-size: 1.1em;
+    font-family: "GeosansLight";
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.phone_img{
+    background-image: url("../images/telephone.png");
+    background-position: 3px;
+    padding: 16px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
+
+.phone_num{
+    font-family: "GeosansLight";
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.phone{
+    position: absolute;
+    top: 53%;
+    left :7%;
+    transform: translate(-50%,-50%);
+}
+
+.contact .envelope_img{
+    background-image: url("../images/email.png");
+    background-position: 3px;
+    padding: 19px;
+    background-size: 36px;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
+
+.envelope_text{
+    font-family: "GeosansLight";
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.contact .envelope{
+    position: absolute;
+    top: 63%;
+    left :8.8%;
+    transform: translate(-50%,-50%);
+}
+.socials{
+    position: relative;
+    margin-left: 40%;
+    margin-top: 15%;
+    display: flex;
+}
+
+.facebook{
+    border: none;
+    width: 35px;
+    height: 30px;
+    background-image: url("../images/facebook.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+
+    margin-right: 30px;
+    display: inline-block;
+    border-radius: 8px;
+    transition: all .3s;
+}
+
+.twitter{
+    border: none;
+    width: 35px;
+    height: 30px;
+    background-image: url("../images/twitter.png");
+    background-size: 30px;
+    margin-right: 30px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border-radius: 8px;
+    transition: all .3s;
+}
+
+.instagram{
+    border: none;
+    width: 35px;
+    height: 30px;
+    background-image: url("../images/instagram.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border-radius: 8px;
+    transition: all .3s;
+}
+
+.footer .footer-content .footer-section-about .socials a:hover {
+    background: black;
+    transition: all .3s;
+}
+
+.quick_link{
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size: 20px;
+    vertical-align: middle;
+    margin-bottom: 0px;
+}
+
+.footer .footer-content .footer-section-links{
+    position: absolute;
+    top: 40%;
+    left :45%;
+    transform: translate(-50%,-50%);
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+
+.footer .footer-content .link:hover{
+    color: white;
+    margin-left: 10px;
+    transition: all .3s;
+}
+
+.link {
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size: 20px;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+.footer-section-contact-form{
+    position: absolute;
+    top: 40%;
+    left :80%;
+    transform: translate(-40%,-50%);
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.contact{
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size: 20px;
+    vertical-align: middle;
+    padding: 3px;
+    margin-left: 80px;
+}
+
+.input_mail{
+    background: #272727;
+    color: #bebdbd;
+    line-height: 1.5rem;
+    border: none;
+    height: 35px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.input_mail{
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.text_area{
+    background: #272727;
+    color: #bebdbd;
+    line-height: 1.5rem;
+    border: none;
+    height: 80px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.text_area{
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.boutton{
+    height: 35px;
+    width: 100px;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.boutton{
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size: 20px;
+    color: white;
+    background-color: #079992;
+    border: none;
+}
+
+.boutton .envelope{
+    background-image: url("../images/email.png");
+    background-position: 3px;
+    padding: 17px;
+    text-align: center;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.footer .footer-bottom{
+    background: black;
+    border-top: solid 1px #079992;
+    color: #ffffff;
+    height: 15px;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    font-family: "GeosansLight";
+    font-weight:bold;
+    letter-spacing:2px;
+}

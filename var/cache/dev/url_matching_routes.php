@@ -25,6 +25,7 @@ return [
         '/login/redirect' => [[['_route' => 'login_redirect', '_controller' => 'App\\Controller\\LoginController::loginRedirectAction'], null, null, null, false, false, null]],
         '/profile' => [[['_route' => 'profile', '_controller' => 'App\\Controller\\ProfileController::index'], null, null, null, false, false, null]],
         '/profile/contact' => [[['_route' => 'profile_contact_form', '_controller' => 'App\\Controller\\ProfileController::contactMail'], null, null, null, false, false, null]],
+        '/rentcar' => [[['_route' => 'rent_car', '_controller' => 'App\\Controller\\RentCarController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -55,7 +55,7 @@ class __TwigTemplate_fb1c391c1423ff0faaa5096961a4edf725b8d1ea50a3531cc0a355d44bf
         if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 8, $this->source); })()), "user", [], "any", false, false, false, 8)) {
             // line 9
             echo "            <li><a href=\"";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rent_car");
             echo "\">CARS</a></li>
             <li><a href=\"";
             // line 10
@@ -89,7 +89,7 @@ class __TwigTemplate_fb1c391c1423ff0faaa5096961a4edf725b8d1ea50a3531cc0a355d44bf
                 if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
                     // line 19
                     echo "            <li><a href=\"";
-                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rent_car");
                     echo "\">CARS</a></li>
             <li><a href=\"";
                     // line 20
@@ -166,7 +166,7 @@ class __TwigTemplate_fb1c391c1423ff0faaa5096961a4edf725b8d1ea50a3531cc0a355d44bf
         <li class=\"logo\"><span id=\"lg\">AR</span>CARS</li>
         <li><a href=\"{{path('home')}}\">HOME</a></li>
         {% if not app.user %}
-            <li><a href=\"{{path('home')}}\">CARS</a></li>
+            <li><a href=\"{{path('rent_car')}}\">CARS</a></li>
             <li><a href=\"{{path('loginPath')}}\">LOGIN</a></li>
             <li><a href=\"{{path('register')}}\">REGISTER</a></li>
         {% else %} 
@@ -176,7 +176,7 @@ class __TwigTemplate_fb1c391c1423ff0faaa5096961a4edf725b8d1ea50a3531cc0a355d44bf
             <li><a href=\"{{path('logout')}}\">LOGOUT</a></li>
         {% else %}
         {% if is_granted('ROLE_USER') %}
-            <li><a href=\"{{path('home')}}\">CARS</a></li>
+            <li><a href=\"{{path('rent_car')}}\">CARS</a></li>
             <li><a href=\"{{path('loginPath')}}\">PROFILE</a></li>
             <li><a href=\"{{path('logout')}}\">LOGOUT</a></li>
         {% endif %}

@@ -10,7 +10,7 @@
             <li><a href="{{path('logout')}}">LOGOUT</a></li>
         {% else %}
         {% if is_granted('ROLE_USER') %}
-            <li><a href="{{path('home')}}">CARS</a></li>
+            <li><a href="{{path('rent_car')}}">CARS</a></li>
             <li><a href="{{path('loginPath')}}">PROFILE</a></li>
             <li><a href="{{path('logout')}}">LOGOUT</a></li>
         {% endif %}

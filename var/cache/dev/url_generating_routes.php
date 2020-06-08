@@ -31,4 +31,5 @@ return [
     'profile' => [[], ['_controller' => 'App\\Controller\\ProfileController::index'], [], [['text', '/profile']], [], []],
     'cancelReservation' => [['id'], ['_controller' => 'App\\Controller\\ProfileController::cancelReservation'], [], [['text', '/reservation/cancel'], ['variable', '/', '[^/]++', 'id', true]], [], []],
     'profile_contact_form' => [[], ['_controller' => 'App\\Controller\\ProfileController::contactMail'], [], [['text', '/profile/contact']], [], []],
+    'rent_car' => [[], ['_controller' => 'App\\Controller\\RentCarController::index'], [], [['text', '/rentcar']], [], []],
 ];

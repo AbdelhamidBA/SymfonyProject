@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rent a Car{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="css/rent_car.css"/>
+{{ include('includes/header.html.twig') }}
+{{ include('includes/navbar.html.twig') }}
+
+<div class="mainContainer">
+    <p id="containerTitle">Car List</p>
+    <div class="ProductContainer">
+        <div class="ProductList">
+
+  <table border='0'>
+   <tr>
+    </tr>
+    <tr>
+    {% for car in cars %}
+    {% if (loop.index + 1) is divisible by(4) %}
+    </tr>
+    <tr>
+    <td> <div class='car'>
+            <img src='uploads/cars/{{car.carPic}}'/>
+            <div id='carPrice'>{{car.carPrice}}DT</div>
+            <p id='carName'>{{car.carName}}</p>
+            <ul id='carInfo'>
+            <li>Availability: Available</li>
+            <li>Year: {{car.carYear}}</li>
+            <li>Color: {{car.carColor}}</li>
+            <li>Seats:{{car.carSeats}}</li>
+            <li>Fuel: {{car.carFuel}}</li>
+            </ul>
+            <input type='submit' id='{{car.id}}' name='order' value='Book this car'/>
+        </div>
+    </td>
+
+    {% else %}
+    <td> <div class='car'>
+            <img src='uploads/cars/{{car.carPic}}'/>
+            <div id='carPrice'>{{car.carPrice}}DT</div>
+            <p id='carName'>{{car.carName}}</p>
+            <ul id='carInfo'>
+            <li>Availability: Available</li>
+            <li>Year: {{car.carYear}}</li>
+            <li>Color: {{car.carColor}}</li>
+            <li>Seats:{{car.carSeats}}</li>
+            <li>Fuel: {{car.carFuel}}</li>
+            </ul>
+            <input type='submit' id='{{car.id}}' name='order' value='Book this car'/>
+        </div>
+    </td>
+
+    {% endif %}
+    {% endfor %}
+    </tr>
+    </table>
+    </div>
+</div>
+
+
+</div>
+{% endblock %}
