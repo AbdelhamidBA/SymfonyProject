@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
   
-{% block title %}Hello ProfileController!{% endblock %}
+{% block title %}Profile{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -26,7 +26,7 @@
         </div>
         <div class="tabHolder">
             <nav id="userNav">
-                <a href="rent_car.php" id="rentcar">Rent a car</a>
+                <a href="{{path('rent_car')}}" id="rentcar">Rent a car</a>
                 <a href="{{path('logout')}}" id="logout">Logout</a>
             </nav>
             <div class="tabList">

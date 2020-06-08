@@ -51,63 +51,64 @@ class __TwigTemplate_fb1c391c1423ff0faaa5096961a4edf725b8d1ea50a3531cc0a355d44bf
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\">HOME</a></li>
         ";
-        // line 8
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 8, $this->source); })()), "user", [], "any", false, false, false, 8)) {
-            // line 9
+        // line 12
+        echo "        ";
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
+            // line 13
             echo "            <li><a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rent_car");
             echo "\">CARS</a></li>
             <li><a href=\"";
-            // line 10
+            // line 14
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("loginPath");
             echo "\">LOGIN</a></li>
             <li><a href=\"";
-            // line 11
+            // line 15
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("register");
             echo "\">REGISTER</a></li>
         ";
         } else {
-            // line 12
+            // line 16
             echo " 
         ";
-            // line 13
+            // line 17
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 14
+                // line 18
                 echo "           
              <li><a href=\"";
-                // line 15
+                // line 19
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_dashboard");
                 echo "\">DASHBOARD</a></li>
             <li><a href=\"";
-                // line 16
+                // line 20
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
                 echo "\">LOGOUT</a></li>
         ";
             } else {
-                // line 18
+                // line 22
                 echo "        ";
                 if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
-                    // line 19
+                    // line 23
                     echo "            <li><a href=\"";
                     echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rent_car");
                     echo "\">CARS</a></li>
             <li><a href=\"";
-                    // line 20
+                    // line 24
                     echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("loginPath");
                     echo "\">PROFILE</a></li>
             <li><a href=\"";
-                    // line 21
+                    // line 25
                     echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
                     echo "\">LOGOUT</a></li>
         ";
                 }
-                // line 23
+                // line 27
                 echo "        ";
             }
-            // line 24
+            // line 28
             echo "        ";
         }
-        // line 25
+        // line 29
         echo "    </ul>
 </nav>";
         
@@ -153,7 +154,7 @@ class __TwigTemplate_fb1c391c1423ff0faaa5096961a4edf725b8d1ea50a3531cc0a355d44bf
 
     public function getDebugInfo()
     {
-        return array (  132 => 2,  122 => 1,  111 => 25,  108 => 24,  105 => 23,  100 => 21,  96 => 20,  91 => 19,  88 => 18,  83 => 16,  79 => 15,  76 => 14,  74 => 13,  71 => 12,  66 => 11,  62 => 10,  57 => 9,  55 => 8,  51 => 7,  46 => 4,  44 => 1,);
+        return array (  133 => 2,  123 => 1,  112 => 29,  109 => 28,  106 => 27,  101 => 25,  97 => 24,  92 => 23,  89 => 22,  84 => 20,  80 => 19,  77 => 18,  75 => 17,  72 => 16,  67 => 15,  63 => 14,  58 => 13,  55 => 12,  51 => 7,  46 => 4,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -165,6 +166,10 @@ class __TwigTemplate_fb1c391c1423ff0faaa5096961a4edf725b8d1ea50a3531cc0a355d44bf
     <ul>
         <li class=\"logo\"><span id=\"lg\">AR</span>CARS</li>
         <li><a href=\"{{path('home')}}\">HOME</a></li>
+        {# Cette Partie permet de verifier si il y a un utilisateur connecté 
+            Si ce le cas alors on va afficher un cutsom navgiation bar pour chaque
+            role
+         #}
         {% if not app.user %}
             <li><a href=\"{{path('rent_car')}}\">CARS</a></li>
             <li><a href=\"{{path('loginPath')}}\">LOGIN</a></li>
