@@ -1,13 +1,33 @@
 {% extends 'base.html.twig' %}
+{# 
+La Admin c'est la page dashboard qui va etre afficher pour le admin
+lorsque il va faire un sign in 
+cette page va permettre au administrateur de site
+d'ajouter,modifier,supprimer,consulter les voitures et
+aussi de consulter la liste des reservations et aussi de consulter
+quelques statistique sur le site (nombre de client,nombre des reservation,.....)
+#}
 
 
-
-{% block title %}Hello AdminController!{% endblock %}
-{% block javascripts %} 
+{% block title %}Admin Dashboard{% endblock %}
+{% block javascripts %}
+    {# 
+     parent() pour faire l'importation de block javascripts 
+        disponible dans base.html.twig
+     #}
     {{ parent() }}
     <script>
+    /* ce script est ecrit avec Jquery
+    on a utiliser jquery pour faire quelques animation
+    et aussi interaction asynchrone et on a utiliser ajax
+    pour ajouter l'aspect de interaction temp reel mais 
+    elle peut etre mieux optimiser
+
+    */
         $(document).ready(function () {
             var showed = false;
+            // DataTable est un plugin js qui j'ai importer pour faire la structuration
+            // De Resultat retourner de back end dans un tableau avec pagination 
             $("#allCarsTable").DataTable({bSort:false, "autoWidth": true,"pageLength":10,
                 'aoColumns': [
                     { bSortable: false },
@@ -53,6 +73,11 @@
                 "bLengthChange": false,
                 "bFilter": false,
                 "paging":         true});
+            //
+            // showTab permer de affichier les contenu de tab selectionner
+            // par exemple lorsque je clic sur le tab Add Car elle va afficher
+            // formulaire de ajout d'une voiture
+            //
             function showTab(name)
             {
                 $(".tabContent").each(function (index) {
@@ -62,18 +87,11 @@
             }
             $("#dashboard").on("click",function () {
                     showTab("#dash");
-                //getClientNumber();
-                //getCarNumbers();
-                //getActiveRes();
-                //getFavClient();
-                //getAllRevenus();
             });
             $("#carM").on("click",function () {
 
                 showTab("#car");
-                //getCars();
-                  
-                  
+                        
                 if(showed == false)
                 {
                     $("#carManagement").slideDown(500);
@@ -90,31 +108,32 @@
             $("#addCar").on("click",function () {
 
                 showTab("#addC");
-
             });
             $("#updateCar").on("click",function () {
 
                 showTab("#UpdateC");
-                //getCarsToUpdate();
-
             });
             $("#deleteCar").on("click",function () {
 
                 showTab("#deleteC");
-                //getCarsToDelete();
             });
 
             $("#Reservation").on("click",function () {
 
                 showTab("#reserv");
-                //getReservation();
 
             });
 
             $("#statusCar").on("click",function () {
                showTab("#StatusC")
-               //getDoneCars();
             });
+
+            /*
+                Cette methode permet de faire le controle de saisie de formulaire
+                AddCar et permet de faire ajouter une voiture en utilisant l'ajax qui
+                va nous permet en communiquant avec controller d'ajouter une voiture sans besoin de faire un reload de page
+                avec l'upload de image de voiture
+            */
             function addCar(form){
                 var errorRate = 0;
                 var name=$("input[name='carName']").val();
@@ -213,7 +232,10 @@
                 }
 
             }
-
+/*
+Cette fonction nous permet de recuperer les donneés ou les information de voiture a modifier
+que l'administrateur va selectionner lors d'operation de UpdateCar en temps reel
+*/
 function getCarInfoToUpdate(id)
 {
     $.ajax({
@@ -238,7 +260,10 @@ function getCarInfoToUpdate(id)
     });
 }
 
-
+/*
+Cette fonction ajax nous permet de faire appliquer l'operation de modification de vehicule
+sans besoin de faire redirection vers autre page
+*/
 function updateCar(form) {
     var formData = new FormData(form);
     formData.append("fname","updateCar");
@@ -274,7 +299,10 @@ $.ajax({
 
 
 
-
+/*
+Cette fonction ajax nous permet de recuperer le model d'un voiture en passent l'id de voiture
+en parameter
+*/
 function getCarModels(id)
 {
 
@@ -300,7 +328,10 @@ function getCarModels(id)
         });
     }
 }
-
+/*
+Cette fonction ajax nous permet de recuperer le model d'un voiture en passent l'id de voiture
+en parameter
+*/
 function getCarModelsUpdate(id,check)
 {
 
@@ -334,7 +365,10 @@ function getCarModelsUpdate(id,check)
     }
 }
 
-
+/*
+Cette fonction ajax nous permet de recuperer les information d'une voiture donner on
+utilisant l'id
+*/
         function getCarByID(id)
         {
             $.ajax({
@@ -346,7 +380,9 @@ function getCarModelsUpdate(id,check)
                 }
             });
         }
-
+/*
+Cette fonction ajax nous permet de supprimer une voiture donner en communiqant avec controller
+*/
         function deleteCarByID(id)
         {
             $.ajax({
@@ -369,7 +405,9 @@ function getCarModelsUpdate(id,check)
                 }
             });
         }
-
+/*
+Cette fonction ajax permet d'executer operation updateCar 
+*/
         function updateCar(form)
         {
             var formData = new FormData(form);

@@ -19,7 +19,7 @@ class ReservationRepository extends ServiceEntityRepository
         parent::__construct($registry, Reservation::class);
     }
 
-    
+    //Compter le nomber des reservation totale pour l'afficher pour l'admin dans la section statistique
     public function getReservationCount()
     {
         return $this->createQueryBuilder('r')
@@ -28,7 +28,7 @@ class ReservationRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
         
     }
-
+//requete pour recuperer la liste des reservation en cours d'un user donné 
     public function getPendingReservationByUserID($id)
     {
         return $this->createQueryBuilder('r')
@@ -40,6 +40,7 @@ class ReservationRepository extends ServiceEntityRepository
         ->getResult()
         ;
     }
+    //requete pour recuperer la liste de reservation d'un user donné
     public function getReservationByUserID($id)
     {
         return $this->createQueryBuilder('r')
@@ -50,7 +51,7 @@ class ReservationRepository extends ServiceEntityRepository
         ;
         
     }
-
+    //requete pour recuperer nombre de reservation actif
     public function getActiveReservationCount()
     {
         return $this->createQueryBuilder('r')

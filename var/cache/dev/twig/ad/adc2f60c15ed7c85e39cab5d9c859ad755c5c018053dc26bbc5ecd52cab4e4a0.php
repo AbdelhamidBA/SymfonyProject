@@ -56,7 +56,7 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
 
     }
 
-    // line 5
+    // line 12
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -66,7 +66,7 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello AdminController!";
+        echo "Admin Dashboard";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -75,7 +75,7 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
 
     }
 
-    // line 6
+    // line 13
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -85,14 +85,24 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        echo " 
-    ";
-        // line 7
+        // line 14
+        echo "    ";
+        // line 18
+        echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
     <script>
+    /* ce script est ecrit avec Jquery
+    on a utiliser jquery pour faire quelques animation
+    et aussi interaction asynchrone et on a utiliser ajax
+    pour ajouter l'aspect de interaction temp reel mais 
+    elle peut etre mieux optimiser
+
+    */
         \$(document).ready(function () {
             var showed = false;
+            // DataTable est un plugin js qui j'ai importer pour faire la structuration
+            // De Resultat retourner de back end dans un tableau avec pagination 
             \$(\"#allCarsTable\").DataTable({bSort:false, \"autoWidth\": true,\"pageLength\":10,
                 'aoColumns': [
                     { bSortable: false },
@@ -138,6 +148,11 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
                 \"bLengthChange\": false,
                 \"bFilter\": false,
                 \"paging\":         true});
+            //
+            // showTab permer de affichier les contenu de tab selectionner
+            // par exemple lorsque je clic sur le tab Add Car elle va afficher
+            // formulaire de ajout d'une voiture
+            //
             function showTab(name)
             {
                 \$(\".tabContent\").each(function (index) {
@@ -147,18 +162,11 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
             }
             \$(\"#dashboard\").on(\"click\",function () {
                     showTab(\"#dash\");
-                //getClientNumber();
-                //getCarNumbers();
-                //getActiveRes();
-                //getFavClient();
-                //getAllRevenus();
             });
             \$(\"#carM\").on(\"click\",function () {
 
                 showTab(\"#car\");
-                //getCars();
-                  
-                  
+                        
                 if(showed == false)
                 {
                     \$(\"#carManagement\").slideDown(500);
@@ -175,31 +183,32 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
             \$(\"#addCar\").on(\"click\",function () {
 
                 showTab(\"#addC\");
-
             });
             \$(\"#updateCar\").on(\"click\",function () {
 
                 showTab(\"#UpdateC\");
-                //getCarsToUpdate();
-
             });
             \$(\"#deleteCar\").on(\"click\",function () {
 
                 showTab(\"#deleteC\");
-                //getCarsToDelete();
             });
 
             \$(\"#Reservation\").on(\"click\",function () {
 
                 showTab(\"#reserv\");
-                //getReservation();
 
             });
 
             \$(\"#statusCar\").on(\"click\",function () {
                showTab(\"#StatusC\")
-               //getDoneCars();
             });
+
+            /*
+                Cette methode permet de faire le controle de saisie de formulaire
+                AddCar et permet de faire ajouter une voiture en utilisant l'ajax qui
+                va nous permet en communiquant avec controller d'ajouter une voiture sans besoin de faire un reload de page
+                avec l'upload de image de voiture
+            */
             function addCar(form){
                 var errorRate = 0;
                 var name=\$(\"input[name='carName']\").val();
@@ -277,7 +286,7 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
                     \$.ajax({
                     type:\"POST\",
                     url:\"";
-        // line 194
+        // line 213
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addCar");
         echo "\",
                     data : formData,
@@ -301,7 +310,10 @@ class __TwigTemplate_08034dae4348d850150a70b3a96a797e7885e83977c984c26a65de2e776
                 }
 
             }
-
+/*
+Cette fonction nous permet de recuperer les donneés ou les information de voiture a modifier
+que l'administrateur va selectionner lors d'operation de UpdateCar en temps reel
+*/
 function getCarInfoToUpdate(id)
 {
     \$.ajax({
@@ -326,7 +338,10 @@ function getCarInfoToUpdate(id)
     });
 }
 
-
+/*
+Cette fonction ajax nous permet de faire appliquer l'operation de modification de vehicule
+sans besoin de faire redirection vers autre page
+*/
 function updateCar(form) {
     var formData = new FormData(form);
     formData.append(\"fname\",\"updateCar\");
@@ -362,7 +377,10 @@ function updateCar(form) {
 
 
 
-
+/*
+Cette fonction ajax nous permet de recuperer le model d'un voiture en passent l'id de voiture
+en parameter
+*/
 function getCarModels(id)
 {
 
@@ -388,7 +406,10 @@ function getCarModels(id)
         });
     }
 }
-
+/*
+Cette fonction ajax nous permet de recuperer le model d'un voiture en passent l'id de voiture
+en parameter
+*/
 function getCarModelsUpdate(id,check)
 {
 
@@ -422,7 +443,10 @@ function getCarModelsUpdate(id,check)
     }
 }
 
-
+/*
+Cette fonction ajax nous permet de recuperer les information d'une voiture donner on
+utilisant l'id
+*/
         function getCarByID(id)
         {
             \$.ajax({
@@ -434,7 +458,9 @@ function getCarModelsUpdate(id,check)
                 }
             });
         }
-
+/*
+Cette fonction ajax nous permet de supprimer une voiture donner en communiqant avec controller
+*/
         function deleteCarByID(id)
         {
             \$.ajax({
@@ -457,7 +483,9 @@ function getCarModelsUpdate(id,check)
                 }
             });
         }
-
+/*
+Cette fonction ajax permet d'executer operation updateCar 
+*/
         function updateCar(form)
         {
             var formData = new FormData(form);
@@ -540,7 +568,7 @@ function getCarModelsUpdate(id,check)
 
     }
 
-    // line 447
+    // line 485
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -550,7 +578,7 @@ function getCarModelsUpdate(id,check)
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 448
+        // line 486
         echo "
 <link rel=\"stylesheet\" href=\"css/admin.css\"/>
 <div class=\"mainContainer\">
@@ -574,7 +602,7 @@ function getCarModelsUpdate(id,check)
     <div class=\"showContainer\">
         <nav>
             <a href=\"";
-        // line 470
+        // line 508
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
         echo "\">Logout</a>
         </nav>
@@ -589,8 +617,8 @@ function getCarModelsUpdate(id,check)
                             <td><div class=\"stat-block\" id=\"users\">
                                 <div class=\"result\">
                                     <p id=\"user-res\">";
-        // line 482
-        echo twig_escape_filter($this->env, (isset($context["user_count"]) || array_key_exists("user_count", $context) ? $context["user_count"] : (function () { throw new RuntimeError('Variable "user_count" does not exist.', 482, $this->source); })()), "html", null, true);
+        // line 520
+        echo twig_escape_filter($this->env, (isset($context["user_count"]) || array_key_exists("user_count", $context) ? $context["user_count"] : (function () { throw new RuntimeError('Variable "user_count" does not exist.', 520, $this->source); })()), "html", null, true);
         echo " <i class=\"fas fa-users\"></i></p>
                                 </div>
                                 <p id=\"user-title\">Number of clients</p>
@@ -598,8 +626,8 @@ function getCarModelsUpdate(id,check)
                             <td><div class=\"stat-block\" id=\"cars\" >
                                 <div class=\"result\">
                                     <p id=\"car-res\">";
-        // line 488
-        echo twig_escape_filter($this->env, (isset($context["car_count"]) || array_key_exists("car_count", $context) ? $context["car_count"] : (function () { throw new RuntimeError('Variable "car_count" does not exist.', 488, $this->source); })()), "html", null, true);
+        // line 526
+        echo twig_escape_filter($this->env, (isset($context["car_count"]) || array_key_exists("car_count", $context) ? $context["car_count"] : (function () { throw new RuntimeError('Variable "car_count" does not exist.', 526, $this->source); })()), "html", null, true);
         echo " <i class=\"fas fa-car\"></i></p>
                                 </div>
                                 <p id=\"car-title\">Number of cars</p>
@@ -607,8 +635,8 @@ function getCarModelsUpdate(id,check)
                             <td><div class=\"stat-block\" id=\"active-reservation\">
                                 <div class=\"result\">
                                     <p id=\"actres-res\">";
-        // line 494
-        echo twig_escape_filter($this->env, (isset($context["act_count"]) || array_key_exists("act_count", $context) ? $context["act_count"] : (function () { throw new RuntimeError('Variable "act_count" does not exist.', 494, $this->source); })()), "html", null, true);
+        // line 532
+        echo twig_escape_filter($this->env, (isset($context["act_count"]) || array_key_exists("act_count", $context) ? $context["act_count"] : (function () { throw new RuntimeError('Variable "act_count" does not exist.', 532, $this->source); })()), "html", null, true);
         echo " <i class=\"fas fa-map-marker-alt\"></i></p>
                                 </div>
                                 <p id=\"actres-title\">Active Reservations</p>
@@ -616,8 +644,8 @@ function getCarModelsUpdate(id,check)
                             <td><div class=\"stat-block\" id=\"total-reservation\">
                                 <div class=\"result\">
                                     <p id=\"totalres-res\">";
-        // line 500
-        echo twig_escape_filter($this->env, (isset($context["res_count"]) || array_key_exists("res_count", $context) ? $context["res_count"] : (function () { throw new RuntimeError('Variable "res_count" does not exist.', 500, $this->source); })()), "html", null, true);
+        // line 538
+        echo twig_escape_filter($this->env, (isset($context["res_count"]) || array_key_exists("res_count", $context) ? $context["res_count"] : (function () { throw new RuntimeError('Variable "res_count" does not exist.', 538, $this->source); })()), "html", null, true);
         echo " <i class=\"fas fa-copy\"></i></p>
                                 </div>
                                 <p id=\"totalres-title\">Total Reservations</p>
@@ -667,48 +695,48 @@ function getCarModelsUpdate(id,check)
                 </thead>
                 <tbody>
                 ";
-        // line 548
+        // line 586
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["cars"]) || array_key_exists("cars", $context) ? $context["cars"] : (function () { throw new RuntimeError('Variable "cars" does not exist.', 548, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["cars"]) || array_key_exists("cars", $context) ? $context["cars"] : (function () { throw new RuntimeError('Variable "cars" does not exist.', 586, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["car"]) {
-            // line 549
+            // line 587
             echo "                
                     <tr>
                         <td>";
-            // line 551
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carName", [], "any", false, false, false, 551), "html", null, true);
+            // line 589
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carName", [], "any", false, false, false, 589), "html", null, true);
             echo "</td>
                         <td>";
-            // line 552
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carModel", [], "any", false, false, false, 552), "html", null, true);
+            // line 590
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carModel", [], "any", false, false, false, 590), "html", null, true);
             echo "</td>
                         <td>";
-            // line 553
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carMark", [], "any", false, false, false, 553), "html", null, true);
+            // line 591
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carMark", [], "any", false, false, false, 591), "html", null, true);
             echo "</td>
                         <td>";
-            // line 554
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carColor", [], "any", false, false, false, 554), "html", null, true);
+            // line 592
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carColor", [], "any", false, false, false, 592), "html", null, true);
             echo "</td>
                         <td>";
-            // line 555
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carYear", [], "any", false, false, false, 555), "html", null, true);
+            // line 593
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carYear", [], "any", false, false, false, 593), "html", null, true);
             echo "</td>
                         <td>";
-            // line 556
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carFuel", [], "any", false, false, false, 556), "html", null, true);
+            // line 594
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carFuel", [], "any", false, false, false, 594), "html", null, true);
             echo "</td>
                         <td>";
-            // line 557
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carSeats", [], "any", false, false, false, 557), "html", null, true);
+            // line 595
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carSeats", [], "any", false, false, false, 595), "html", null, true);
             echo "</td>
                         <td>";
-            // line 558
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carPrice", [], "any", false, false, false, 558), "html", null, true);
+            // line 596
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carPrice", [], "any", false, false, false, 596), "html", null, true);
             echo "</td>
                         <td><img src=\"uploads/cars/";
-            // line 559
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carPic", [], "any", false, false, false, 559), "html", null, true);
+            // line 597
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carPic", [], "any", false, false, false, 597), "html", null, true);
             echo "\"/></td>
                     </tr>
                 ";
@@ -716,7 +744,7 @@ function getCarModelsUpdate(id,check)
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['car'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 562
+        // line 600
         echo "                </tbody>
                 </table>
               
@@ -738,42 +766,42 @@ function getCarModelsUpdate(id,check)
                     </tr></thead>
                     <tbody>
                         ";
-        // line 582
+        // line 620
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reservations"]) || array_key_exists("reservations", $context) ? $context["reservations"] : (function () { throw new RuntimeError('Variable "reservations" does not exist.', 582, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["reservations"]) || array_key_exists("reservations", $context) ? $context["reservations"] : (function () { throw new RuntimeError('Variable "reservations" does not exist.', 620, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["res"]) {
-            // line 583
+            // line 621
             echo "                            <tr>
                                 <td>";
-            // line 584
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "id", [], "any", false, false, false, 584), "html", null, true);
+            // line 622
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "id", [], "any", false, false, false, 622), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 585
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "clientName", [], "any", false, false, false, 585), "html", null, true);
+            // line 623
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "clientName", [], "any", false, false, false, 623), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 586
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "carName", [], "any", false, false, false, 586), "html", null, true);
+            // line 624
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "carName", [], "any", false, false, false, 624), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 587
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "res_date", [], "any", false, false, false, 587), "html", null, true);
+            // line 625
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "res_date", [], "any", false, false, false, 625), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 588
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "ret_date", [], "any", false, false, false, 588), "html", null, true);
+            // line 626
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "ret_date", [], "any", false, false, false, 626), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 589
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "status", [], "any", false, false, false, 589), "html", null, true);
+            // line 627
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["res"], "status", [], "any", false, false, false, 627), "html", null, true);
             echo "</td>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['res'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 591
+        // line 629
         echo "                    </tbody>
                 </table>
             </div>
@@ -794,22 +822,22 @@ function getCarModelsUpdate(id,check)
                             <td><select name=\"carMark\" id=\"carMark\">
                             <option value=\"\">Choose Car Mark</option> 
                              ";
-        // line 610
+        // line 648
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["marks"]) || array_key_exists("marks", $context) ? $context["marks"] : (function () { throw new RuntimeError('Variable "marks" does not exist.', 610, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["marks"]) || array_key_exists("marks", $context) ? $context["marks"] : (function () { throw new RuntimeError('Variable "marks" does not exist.', 648, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["mark"]) {
-            // line 611
+            // line 649
             echo "                                <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "id", [], "any", false, false, false, 611), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "id", [], "any", false, false, false, 649), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "mark", [], "any", false, false, false, 611), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "mark", [], "any", false, false, false, 649), "html", null, true);
             echo "</option>
                              ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['mark'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 613
+        // line 651
         echo "                            </select></td>
                             <td><span id=\"errorCarMark\"</td>
                         </tr>
@@ -894,22 +922,22 @@ function getCarModelsUpdate(id,check)
                             <td><select name=\"carList\">
                                 <option value=\"\">Select Car</option>
                                 ";
-        // line 696
+        // line 734
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["cars"]) || array_key_exists("cars", $context) ? $context["cars"] : (function () { throw new RuntimeError('Variable "cars" does not exist.', 696, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["cars"]) || array_key_exists("cars", $context) ? $context["cars"] : (function () { throw new RuntimeError('Variable "cars" does not exist.', 734, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["car"]) {
-            // line 697
+            // line 735
             echo "                                    <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "id", [], "any", false, false, false, 697), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "id", [], "any", false, false, false, 735), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carName", [], "any", false, false, false, 697), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carName", [], "any", false, false, false, 735), "html", null, true);
             echo "</option>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['car'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 699
+        // line 737
         echo "                            </select></td>
                         </tr>
                         <tr>
@@ -935,22 +963,22 @@ function getCarModelsUpdate(id,check)
                             <td><select name=\"carListUpdate\">
                                 <option value=\"\">Select Car</option>
                                 ";
-        // line 723
+        // line 761
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["cars"]) || array_key_exists("cars", $context) ? $context["cars"] : (function () { throw new RuntimeError('Variable "cars" does not exist.', 723, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["cars"]) || array_key_exists("cars", $context) ? $context["cars"] : (function () { throw new RuntimeError('Variable "cars" does not exist.', 761, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["car"]) {
-            // line 724
+            // line 762
             echo "                                    <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "id", [], "any", false, false, false, 724), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "id", [], "any", false, false, false, 762), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carName", [], "any", false, false, false, 724), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["car"], "carName", [], "any", false, false, false, 762), "html", null, true);
             echo "</option>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['car'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 726
+        // line 764
         echo "                            </select></td>
                         </tr>
 
@@ -967,22 +995,22 @@ function getCarModelsUpdate(id,check)
                                             <td><select name=\"updateMark\" id=\"updateMark\">
                                             <option value=\"\">Choose Car Mark</option> 
                                             ";
-        // line 741
+        // line 779
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["marks"]) || array_key_exists("marks", $context) ? $context["marks"] : (function () { throw new RuntimeError('Variable "marks" does not exist.', 741, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["marks"]) || array_key_exists("marks", $context) ? $context["marks"] : (function () { throw new RuntimeError('Variable "marks" does not exist.', 779, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["mark"]) {
-            // line 742
+            // line 780
             echo "                                                <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "id", [], "any", false, false, false, 742), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "id", [], "any", false, false, false, 780), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "mark", [], "any", false, false, false, 742), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["mark"], "mark", [], "any", false, false, false, 780), "html", null, true);
             echo "</option>
                                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['mark'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 744
+        // line 782
         echo "                                            </select></td>
                                             <td><span id=\"errorCarMarkUpdate\"</td>
                                         </tr>
@@ -1084,21 +1112,41 @@ function getCarModelsUpdate(id,check)
 
     public function getDebugInfo()
     {
-        return array (  986 => 744,  975 => 742,  971 => 741,  954 => 726,  943 => 724,  939 => 723,  913 => 699,  902 => 697,  898 => 696,  813 => 613,  802 => 611,  798 => 610,  777 => 591,  769 => 589,  765 => 588,  761 => 587,  757 => 586,  753 => 585,  749 => 584,  746 => 583,  742 => 582,  720 => 562,  711 => 559,  707 => 558,  703 => 557,  699 => 556,  695 => 555,  691 => 554,  687 => 553,  683 => 552,  679 => 551,  675 => 549,  671 => 548,  620 => 500,  611 => 494,  602 => 488,  593 => 482,  578 => 470,  554 => 448,  544 => 447,  281 => 194,  91 => 7,  79 => 6,  60 => 5,  37 => 1,);
+        return array (  1014 => 782,  1003 => 780,  999 => 779,  982 => 764,  971 => 762,  967 => 761,  941 => 737,  930 => 735,  926 => 734,  841 => 651,  830 => 649,  826 => 648,  805 => 629,  797 => 627,  793 => 626,  789 => 625,  785 => 624,  781 => 623,  777 => 622,  774 => 621,  770 => 620,  748 => 600,  739 => 597,  735 => 596,  731 => 595,  727 => 594,  723 => 593,  719 => 592,  715 => 591,  711 => 590,  707 => 589,  703 => 587,  699 => 586,  648 => 538,  639 => 532,  630 => 526,  621 => 520,  606 => 508,  582 => 486,  572 => 485,  290 => 213,  91 => 18,  89 => 14,  79 => 13,  60 => 12,  37 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
+{# 
+La Admin c'est la page dashboard qui va etre afficher pour le admin
+lorsque il va faire un sign in 
+cette page va permettre au administrateur de site
+d'ajouter,modifier,supprimer,consulter les voitures et
+aussi de consulter la liste des reservations et aussi de consulter
+quelques statistique sur le site (nombre de client,nombre des reservation,.....)
+#}
 
 
-
-{% block title %}Hello AdminController!{% endblock %}
-{% block javascripts %} 
+{% block title %}Admin Dashboard{% endblock %}
+{% block javascripts %}
+    {# 
+     parent() pour faire l'importation de block javascripts 
+        disponible dans base.html.twig
+     #}
     {{ parent() }}
     <script>
+    /* ce script est ecrit avec Jquery
+    on a utiliser jquery pour faire quelques animation
+    et aussi interaction asynchrone et on a utiliser ajax
+    pour ajouter l'aspect de interaction temp reel mais 
+    elle peut etre mieux optimiser
+
+    */
         \$(document).ready(function () {
             var showed = false;
+            // DataTable est un plugin js qui j'ai importer pour faire la structuration
+            // De Resultat retourner de back end dans un tableau avec pagination 
             \$(\"#allCarsTable\").DataTable({bSort:false, \"autoWidth\": true,\"pageLength\":10,
                 'aoColumns': [
                     { bSortable: false },
@@ -1144,6 +1192,11 @@ function getCarModelsUpdate(id,check)
                 \"bLengthChange\": false,
                 \"bFilter\": false,
                 \"paging\":         true});
+            //
+            // showTab permer de affichier les contenu de tab selectionner
+            // par exemple lorsque je clic sur le tab Add Car elle va afficher
+            // formulaire de ajout d'une voiture
+            //
             function showTab(name)
             {
                 \$(\".tabContent\").each(function (index) {
@@ -1153,18 +1206,11 @@ function getCarModelsUpdate(id,check)
             }
             \$(\"#dashboard\").on(\"click\",function () {
                     showTab(\"#dash\");
-                //getClientNumber();
-                //getCarNumbers();
-                //getActiveRes();
-                //getFavClient();
-                //getAllRevenus();
             });
             \$(\"#carM\").on(\"click\",function () {
 
                 showTab(\"#car\");
-                //getCars();
-                  
-                  
+                        
                 if(showed == false)
                 {
                     \$(\"#carManagement\").slideDown(500);
@@ -1181,31 +1227,32 @@ function getCarModelsUpdate(id,check)
             \$(\"#addCar\").on(\"click\",function () {
 
                 showTab(\"#addC\");
-
             });
             \$(\"#updateCar\").on(\"click\",function () {
 
                 showTab(\"#UpdateC\");
-                //getCarsToUpdate();
-
             });
             \$(\"#deleteCar\").on(\"click\",function () {
 
                 showTab(\"#deleteC\");
-                //getCarsToDelete();
             });
 
             \$(\"#Reservation\").on(\"click\",function () {
 
                 showTab(\"#reserv\");
-                //getReservation();
 
             });
 
             \$(\"#statusCar\").on(\"click\",function () {
                showTab(\"#StatusC\")
-               //getDoneCars();
             });
+
+            /*
+                Cette methode permet de faire le controle de saisie de formulaire
+                AddCar et permet de faire ajouter une voiture en utilisant l'ajax qui
+                va nous permet en communiquant avec controller d'ajouter une voiture sans besoin de faire un reload de page
+                avec l'upload de image de voiture
+            */
             function addCar(form){
                 var errorRate = 0;
                 var name=\$(\"input[name='carName']\").val();
@@ -1304,7 +1351,10 @@ function getCarModelsUpdate(id,check)
                 }
 
             }
-
+/*
+Cette fonction nous permet de recuperer les donneés ou les information de voiture a modifier
+que l'administrateur va selectionner lors d'operation de UpdateCar en temps reel
+*/
 function getCarInfoToUpdate(id)
 {
     \$.ajax({
@@ -1329,7 +1379,10 @@ function getCarInfoToUpdate(id)
     });
 }
 
-
+/*
+Cette fonction ajax nous permet de faire appliquer l'operation de modification de vehicule
+sans besoin de faire redirection vers autre page
+*/
 function updateCar(form) {
     var formData = new FormData(form);
     formData.append(\"fname\",\"updateCar\");
@@ -1365,7 +1418,10 @@ function updateCar(form) {
 
 
 
-
+/*
+Cette fonction ajax nous permet de recuperer le model d'un voiture en passent l'id de voiture
+en parameter
+*/
 function getCarModels(id)
 {
 
@@ -1391,7 +1447,10 @@ function getCarModels(id)
         });
     }
 }
-
+/*
+Cette fonction ajax nous permet de recuperer le model d'un voiture en passent l'id de voiture
+en parameter
+*/
 function getCarModelsUpdate(id,check)
 {
 
@@ -1425,7 +1484,10 @@ function getCarModelsUpdate(id,check)
     }
 }
 
-
+/*
+Cette fonction ajax nous permet de recuperer les information d'une voiture donner on
+utilisant l'id
+*/
         function getCarByID(id)
         {
             \$.ajax({
@@ -1437,7 +1499,9 @@ function getCarModelsUpdate(id,check)
                 }
             });
         }
-
+/*
+Cette fonction ajax nous permet de supprimer une voiture donner en communiqant avec controller
+*/
         function deleteCarByID(id)
         {
             \$.ajax({
@@ -1460,7 +1524,9 @@ function getCarModelsUpdate(id,check)
                 }
             });
         }
-
+/*
+Cette fonction ajax permet d'executer operation updateCar 
+*/
         function updateCar(form)
         {
             var formData = new FormData(form);

@@ -16,11 +16,17 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile", name="profile")
      */
+    //Afficher le profile de client connecté
     public function index(UserInterface $user )
     {
+        //recuperer les infos d'user connecté
         $userinfo = $this->getUserInfo($user);   
+        //recuperer l'historique de reservation de user connecté
         $hist = $this->getHistory($user);
+        //recuperer la liste de reservation en cours de user connecté
         $pendings = $this->getPendingReservation($user);
+
+        //affichage de template profile.html.twig avec data binding
         return $this->render('profile/profile.html.twig', [
             'controller_name' => 'ProfileController',
             'userinfo' =>$userinfo,
@@ -29,6 +35,7 @@ class ProfileController extends AbstractController
         ]);
     }
 
+    //recuperer les infos de user connecté
     public function getUserInfo(UserInterface $user )
     {
         $u= $this->getDoctrine()->getRepository(User::class)->find($user->getId());
@@ -46,8 +53,11 @@ class ProfileController extends AbstractController
     }
 
 
+    //recuperer la liste de reservation en cours d'user connecté
     public function getPendingReservation(UserInterface $user)
     {
+        //recuperation de liste de reservation en utilisant la methode personnalisé qui on a creer
+        //dans Repository Reservation
         $pendings = $this->getDoctrine()
         ->getRepository(Reservation::class)
         ->getPendingReservationByUserID($user->getId());
@@ -75,8 +85,11 @@ class ProfileController extends AbstractController
     }
 
 
+    //recuperer l'historique de reservation de user connecté
     public function getHistory(UserInterface $user)
     {
+        //recuperation d'historique depuis la methode personnalisé qui on creer
+        // dans Repository Reservation
         $res = $this->getDoctrine()->getRepository(Reservation::class)->getReservationByUserID($user->getId());
         $jsonData =[];
         if($res != null)
@@ -97,6 +110,7 @@ class ProfileController extends AbstractController
         return $jsonData;
     }else
     {
+        // return null si l'utilisateur n'a pas d'historique
         return null;
     }
     }
@@ -104,6 +118,8 @@ class ProfileController extends AbstractController
     /**
      * @Route("/{id}/reservation/cancel",name="cancelReservation",methods={"DELETE"})
      */
+
+     //faire l'annulation d'une reservation donnéé
     public function cancelReservation($id)
     {
         $status = array(
@@ -120,6 +136,8 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/contact",name="profile_contact_form")
      */
+    //l'envoi d'un email de contact depuis page profile
+    // cette methode est appellé par un methode ajax dans CLient.js
     public function contactMail(Request $request,UserInterface $user,\Swift_Mailer $mailer)
     {
         $status = array("status"=>false);
@@ -127,13 +145,14 @@ class ProfileController extends AbstractController
         $description = $request->request->get("description");
         $u = $this->getDoctrine()->getRepository(User::class)->find($user->getId());
         
-
+        //prepartion de message on entrant les info neccessaire
         $message = (new \Swift_Message("User Concern: ".$concern))
-        ->setFrom(['rev_predator@hotmail.fr' => $u->getFullname()])
+        ->setFrom([$u->getEmail() => $u->getFullname()])
         ->setTo('benabdelfettah.abdelhamid@gmail.com')
         ->setBody($description)
         ;
 
+        //verification si l'email est envoyé correctement
         if($mailer->send($message,$errors))
         {
             $status = array("status"=>true,"errors"=>$errors);

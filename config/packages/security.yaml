@@ -1,3 +1,4 @@
+#Cette partie permet definir bcrypt comme methode cryptage&decryptage
 security:
     encoders:
         App\Entity\User:
@@ -16,11 +17,12 @@ security:
         main:
             anonymous: lazy
             provider: in_database
+            #cette partie pour identifier pour sys que ce formulaire sera le point d'entrer pour login
             form_login:
                 login_path: loginPath
                 check_path: loginPath
                 default_target_path: login_redirect
-            
+            #definir logout page
             logout:
                 path: logout
                 target: home

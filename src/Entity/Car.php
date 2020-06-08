@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+// L'entite qui represente la table Voiture dans la base (CarEntitySchema)
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CarRepository")
  */

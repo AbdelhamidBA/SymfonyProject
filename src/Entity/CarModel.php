@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
+// L'entite qui represente la table modele des voiture dans la base (CarModelEntitySchema)
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CarModelRepository")
  */

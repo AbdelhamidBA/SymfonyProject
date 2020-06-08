@@ -20,6 +20,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         parent::__construct($registry, User::class);
     }
 
+    // cette fonction va permet au user de site de se connecté si par l'email ou username
     public function loadUserByUsername($usernameOrEmail)
     {
         return $this->createQueryBuilder('u')
@@ -30,7 +31,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         ->getOneOrNullResult();
     }
 
-    
+    //requete pour recuperer le nombre de client totale dans site
     public function getUserCount()
     {
         return $this->createQueryBuilder('c')

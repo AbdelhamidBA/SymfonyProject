@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+// L'entite qui represente la table marque des voiture dans la base (MarkEntitySchema)
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MarkRepository")
  */

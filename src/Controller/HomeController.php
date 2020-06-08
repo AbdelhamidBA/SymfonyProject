@@ -10,10 +10,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
+    //Affichage de page home
     public function index()
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'controller_name' => 'ARCARS',
         ]);
     }
 }

@@ -35,6 +35,9 @@ class CarModelRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    //cette function permet de recuperer la liste de modele de voiture
+    //selon la mark de voiture
     public function getCarModelsByMarkID($value)
     {
         return $this->createQueryBuilder('c')

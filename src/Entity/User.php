@@ -7,6 +7,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+// L'entite qui represente la table user dans la base (UserEntitySchema)
+// UniqueEntity cad avant d'ajouter un user if faut verifer que sa email et username 
+// n'est pas existant deja dans la base
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(

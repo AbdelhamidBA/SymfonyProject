@@ -9,7 +9,10 @@ function showTab(name, button) {
     $(name).delay(500).fadeIn(500);
 }
 
-
+/*
+Cette fonction ajax permet de faire l'annulation d'une reservation
+d'un client donner
+*/
 function cancelReservation(id) {
     $.ajax({
         type: 'DELETE',
@@ -25,6 +28,11 @@ function cancelReservation(id) {
         }
     });
 }
+
+/*
+Cette fonction ajax permet au client d'envoyer un email de contact pour l'agence
+sans besoin de quitter sa profile
+*/
 
 function contact() {
     var c = $("#concern").val();
